@@ -1,14 +1,12 @@
 
 <div class="row header">
-    <div class="col text-center">
+    <div class="col text-left">
         <div id="weatherInfo">
-            <?php echo $weatherData->main->temp ?><i class="wi wi-celsius"></i>
+            <i class="wi <?php echo $weatherData['icon'] ?>"></i><br/>
+            <?php echo $weatherData['temp'] ?><i class="wi wi-celsius"></i>
         </div>
     </div>
-    <div class="col text-center">
-        <h1>Welkom</h1>
-    </div>
-    <div class="col text-center">
+    <div class="col text-right">
         <span id="datetime"></span>
     </div>
 </div>

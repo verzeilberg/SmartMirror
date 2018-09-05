@@ -38,7 +38,7 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => InvokableFactory::class,
+            Controller\IndexController::class => Factory\IndexControllerFactory::class,
         ],
     ],
     'view_manager' => [
@@ -55,6 +55,13 @@ return [
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
+        ],
+    ],
+    'asset_manager' => [
+        'resolver_configs' => [
+            'paths' => [
+                __DIR__ . '/../public',
+            ],
         ],
     ],
 ];

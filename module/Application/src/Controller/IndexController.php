@@ -15,19 +15,23 @@ class IndexController extends AbstractActionController {
 
     private $vhm;
     private $weatherService;
+    private $newsService;
 
-    public function __construct($vhm, $weatherService) {
+    public function __construct($vhm, $weatherService, $newsService) {
         $this->vhm = $vhm;
         $this->weatherService = $weatherService;
+        $this->newsService = $newsService;
     }
 
     public function indexAction() {
 
         $weatherData = $this->weatherService->getWeatherInfo();
-
+        $newsData = $this->newsService->getNewsInfo();
+        
         return new ViewModel(
                 [
-                    'weatherData' => $weatherData
+                    'weatherData' => $weatherData,
+                    'newsData' => $newsData
                 ]
         );
     }

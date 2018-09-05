@@ -6,6 +6,7 @@ use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 use Application\Controller\IndexController;
 use Weather\Service\weatherService;
+use News\Service\newsService;
 
 /**
  * This is the factory for AuthController. Its purpose is to instantiate the controller
@@ -18,7 +19,8 @@ class IndexControllerFactory implements FactoryInterface {
         $vhm = $container->get('ViewHelperManager');
         $config = $container->get('config');
         $weatherService = new weatherService($config);
+        $newsService = new newsService($config);
         
-        return new IndexController($vhm, $weatherService);
+        return new IndexController($vhm, $weatherService, $newsService);
     }
 }

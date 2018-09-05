@@ -26,5 +26,6 @@ return [
     'DoctrineORMModule',
     'AssetManager',
     'Weather',
+    'News',
     'Application',
 ];

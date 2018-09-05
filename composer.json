@@ -32,7 +32,8 @@
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
-            "Weather\\": "module/Weather/src/"
+            "Weather\\": "module/Weather/src/",
+            "News\\": "module/News/src/"
         }
     },
     "autoload-dev": {

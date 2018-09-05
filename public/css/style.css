@@ -45,3 +45,10 @@ div#weatherInfo {
 span#datetime {
     font-size:60px; 
 }
+
+/*
+* News feed
+*/
+div#newsFeed {
+    font-size:22px;
+}

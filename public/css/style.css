@@ -35,8 +35,15 @@ h1 {
 /*
 * Weather display
 */
-div#weatherInfo {
-    font-size:60px;
+span.temp-wind {
+    font-size:30px;
+    width:100%;
+}
+
+span.sunsetrise {
+    font-size:20px;
+    width:100%;
+    color: #c6c8ca;
 }
 
 /*

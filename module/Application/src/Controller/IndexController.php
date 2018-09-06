@@ -30,6 +30,7 @@ class IndexController extends AbstractActionController {
         $this->vhm->get('headLink')->appendStylesheet('/css/scrollText.css');
         
         $weatherData = $this->weatherService->getWeatherInfo();
+        $weatherForecastData = $this->weatherService->getWeatherForecastInfo();
         $newsData = $this->newsService->getNewsInfo();
         
         return new ViewModel(

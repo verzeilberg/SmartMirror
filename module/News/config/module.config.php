@@ -13,6 +13,13 @@ return [
             'News\Service\newsServiceInterface' => 'News\Service\newsService'
         ],
     ],
+    'asset_manager' => [
+        'resolver_configs' => [
+            'paths' => [
+                __DIR__ . '/../public',
+            ],
+        ],
+    ],
     'newsSettings' => [
         'RSS-Feed-Link' => 'https://www.ad.nl/home/rss.xml'
 

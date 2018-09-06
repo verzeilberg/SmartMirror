@@ -16,7 +16,15 @@
 <div class="row footer">
     <div class="col text-center">
         <div id="newsFeed">
-            <?php echo $newsData[0]['title']; ?>
+            <div class="textSlider">
+                <ul>
+                    <?php
+                    foreach ($newsData AS $newsItem) {
+                        echo '<li>' . $newsItem['title'] . '</li>';
+                    }
+                    ?>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

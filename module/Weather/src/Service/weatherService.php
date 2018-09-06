@@ -71,19 +71,22 @@ class weatherService implements weatherServiceInterface {
         $weatherData = file_get_contents('http://api.openweathermap.org/data/2.5/forecast?zip=' . $this->zip . ',' . $this->country . '&units=' . $this->units . '&lang=' . $this->lang . '&appid=' . $this->apiKey);
         $weatherData = json_decode($weatherData);
 
-            echo '<pre>';
-
+        $currentDateObject = new \DateTime();
+        $currentDateObject->add(new \DateInterval('P1D'));
+        $currentDate = $currentDateObject->format('Y-m-d');
+        var_dump($currentDate);
 
         foreach($weatherData->list AS $day){
-            $date = new \DateTime(null, new \DateTimeZone('Europe/Berlin'));
-
-            $date->setTimestamp($day->dt);
-
-            echo 'Date from timestamp: ' . $date->format('Y-m-d H:i:s') . "<br/>";
+            $dayDate = new \DateTime();
+            $dayDate->setTimestamp($day->dt);
+            $dayDate = $dayDate->format('Y-m-d');
 
 
-            echo 'Timestamp: ' . $day->dt . '<br/>';
-            echo 'Date in text: ' . $day->dt_txt . '<br/><br/>';
+            echo '<pre>';
+            if($currentDate == $dayDate) {
+                echo 'ja';
+            }
+
         }
 
         die;

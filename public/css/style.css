@@ -53,6 +53,13 @@ span#datetime {
     font-size:30px;
 }
 
+span.time {
+    font-size:40px;
+    width:100%;
+    min-width:100%;
+    text-align:left;
+}
+
 /*
 * News feed
 */

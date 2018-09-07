@@ -36,7 +36,7 @@
 
             var update = function () {
                 date = moment(new Date())
-                datetime.html(date.format('dddd, D MMMM YYYY [<br/>] HH:mm'));
+                datetime.html(date.format('[<span class="date">]dddd, D MMMM YYYY[</span><br/><span class="time">] HH:mm[</span>]'));
             };
 
             $(document).ready(function () {

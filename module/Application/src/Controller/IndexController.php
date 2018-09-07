@@ -36,6 +36,7 @@ class IndexController extends AbstractActionController {
         return new ViewModel(
                 [
                     'weatherData' => $weatherData,
+                    'weatherForecastData' => $weatherForecastData,
                     'newsData' => $newsData
                 ]
         );

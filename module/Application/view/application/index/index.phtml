@@ -3,13 +3,26 @@
     <div class="col text-left">
         <div id="weatherInfo">
             <span class="sunsetrise">
-                <i class="wi wi-sunrise"></i><?php echo $weatherData['sunRise'] ?>
-                <i class="wi wi-sunset"></i><?php echo $weatherData['sunSet'] ?>
+                <i class="wi wi-sunrise"></i>&nbsp;<?php echo $weatherData['sunRise'] ?>
+                <i class="wi wi-sunset"></i>&nbsp;<?php echo $weatherData['sunSet'] ?>
             </span>
             <br/>
             <span class="temp-wind">
                     <i class="wi <?php echo $weatherData['icon'] ?>"></i> <?php echo $weatherData['temp'] ?><i class="wi wi-celsius"></i>
                     <i class="wi wi-strong-wind"></i> <?php echo $weatherData['windSpeed'] ?>
+            </span>
+            <span class="foreCast">
+                <?php foreach ($weatherForecastData AS $date => $weatherForecast) {
+                    $date = new \DateTime($date);
+                    ?>
+                    <table class="">
+                        <tr>
+                            <td width="33%"><?php echo $date->format('D'); ?></td>
+                            <td width="33%"><i class="wi <?php echo $weatherForecast['icon'] ?>"></i></td>
+                            <td width="33%"><?php echo $weatherForecast['temp'] ?><i class="wi wi-celsius"></i></td>
+                        </tr>
+                    </table>
+                <?php } ?>
             </span>
         </div>
     </div>

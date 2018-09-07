@@ -74,24 +74,26 @@ class weatherService implements weatherServiceInterface {
         $currentDateObject = new \DateTime();
         $currentDateObject->add(new \DateInterval('P1D'));
         $currentDate = $currentDateObject->format('Y-m-d');
-        var_dump($currentDate);
-
+        $data = [];
         foreach($weatherData->list AS $day){
             $dayDate = new \DateTime();
             $dayDate->setTimestamp($day->dt);
             $dayDate = $dayDate->format('Y-m-d');
 
-
-            echo '<pre>';
             if($currentDate == $dayDate) {
-                echo 'ja';
+                $currentDate = date('Y-m-d', strtotime($currentDate . ' +1 day'));
+
+                $data[$dayDate]['temp'] = round($day->main->temp, 1);
+                $data[$dayDate]['tempMin'] = round($day->main->temp_min, 1);
+                $data[$dayDate]['tempMax'] = round($day->main->temp_max, 1);
+                $data[$dayDate]['icon'] = $this->icons[$day->weather[0]->icon];
+                $data[$dayDate]['windSpeed'] = $day->wind->speed;
+                $data[$dayDate]['windDegree'] = $day->wind->deg;
             }
 
         }
 
-        die;
-
-        return $weatherData;
+        return $data;
     }
 
 }

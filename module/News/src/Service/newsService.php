@@ -14,7 +14,7 @@ class newsService implements newsServiceInterface {
      */
     public function __construct($config) {
         $this->config = $config;
-        $this->rssFeedLink = $config['newsSettings']['RSS-Feed-Link'];
+        $this->rssFeeds = $config['newsSettings']['feeds'];
     }
 
     /**
@@ -25,16 +25,23 @@ class newsService implements newsServiceInterface {
      *
      */
     public function getNewsInfo() {
-        $newsData = file_get_contents($this->rssFeedLink);
-        $xml = simplexml_load_string($newsData, "SimpleXMLElement", LIBXML_NOCDATA);
-        $json = json_encode($xml);
-        $array = json_decode($json, true);
-        $newsItems = $array['channel']['item'];
+        $data = [];
+        foreach ($this->rssFeeds AS $index => $feed) {
 
-        return $newsItems;
+            $dateRssFeed = file_get_contents($feed);
+            $xml = simplexml_load_string($dateRssFeed, "SimpleXMLElement", LIBXML_NOCDATA);
+            $json = json_encode($xml);
+            $array = json_decode($json, true);
+            $newsItems = $array['channel']['item'];
+            foreach($newsItems AS $newsItem) {
+                $data[]['title'] = $newsItem['title'] . ' ('.$index.')';
+            }
+        }
+        shuffle($data);
+        return $data;
     }
-    
-        /**
+
+    /**
      *
      * Get one news item
      *
@@ -42,7 +49,7 @@ class newsService implements newsServiceInterface {
      *
      */
     public function getNewsHeadline() {
-                $newsData = file_get_contents($this->rssFeedLink);
+        $newsData = file_get_contents($this->rssFeedLink);
 
         $xml = simplexml_load_string($newsData, "SimpleXMLElement", LIBXML_NOCDATA);
         $json = json_encode($xml);

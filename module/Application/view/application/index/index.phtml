@@ -23,13 +23,7 @@
     <div class="col text-center align-text-bottom">
         <div id="newsFeed">
             <div class="textSlider">
-                <ul>
-                    <?php
-                    foreach ($newsData AS $newsItem) {
-                        echo '<li>' . $newsItem['title'] . '</li>';
-                    }
-                    ?>
-                </ul>
+                <ul id="newsData"></ul>
             </div>
         </div>
     </div>

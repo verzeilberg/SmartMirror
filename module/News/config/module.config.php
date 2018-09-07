@@ -8,6 +8,24 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 
 return [
+    'router' => [
+        'routes' => [
+            'news' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route' => '/news[/:action]',
+                    'defaults' => [
+                        'controller' => Controller\AjaxController::class,
+                    ],
+                ],
+            ],
+        ],
+    ],
+    'controllers' => [
+        'factories' => [
+            Controller\AjaxController::class => Factory\AjaxControllerFactory::class,
+        ],
+    ],
     'service_manager' => [
         'invokables' => [
             'News\Service\newsServiceInterface' => 'News\Service\newsService'
@@ -21,7 +39,10 @@ return [
         ],
     ],
     'newsSettings' => [
-        'RSS-Feed-Link' => 'https://www.ad.nl/home/rss.xml'
-
+        'feeds' => [
+            'telegraaf.nl' => 'https://www.telegraaf.nl/rss',
+            'nu.nl' => 'https://www.nu.nl/rss',
+            'ad.nl' => 'https://www.ad.nl/home/rss.xml',
+        ],
     ],
 ];

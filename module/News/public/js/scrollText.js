@@ -49,8 +49,6 @@
         this.children('ul').addClass('ulzone');
         content = $('.ulzone').eq(0);
         
-        console.log(content);
-
         contentHeight = content.height();
         contentChildHeight = content.children().eq(0).height();
         temp = contentChildHeight;
@@ -66,7 +64,6 @@
     }
 
     ST.up = function() {
-        console.log('UP');
         content.animate({
             marginTop: '-' + contentChildHeight
         });
@@ -118,7 +115,6 @@
     function _hover(t) {
 
         t.hover(function() { // over
-            console.log('over the li');
             clearInterval(intervalID);
         }, function() { // out
             _scroll();

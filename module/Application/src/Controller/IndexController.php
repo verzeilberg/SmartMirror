@@ -24,6 +24,8 @@ class IndexController extends AbstractActionController {
     }
 
     public function indexAction() {
+        $this->vhm->get('headScript')->appendFile('/js/dateTime.js');
+        $this->vhm->get('headScript')->appendFile('/js/weather.js');
         $this->vhm->get('headScript')->appendFile('/js/news.js');
         $this->vhm->get('headScript')->appendFile('/js/scrollText.js');
         $this->vhm->get('headLink')->appendStylesheet('/css/news.css');

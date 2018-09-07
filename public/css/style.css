@@ -36,28 +36,28 @@ h1 {
 * Weather display
 */
 span.temp-wind {
-    font-size:30px;
+    font-size:40px;
     width:100%;
 }
 
 span.sunsetrise {
-    font-size:20px;
+    font-size: 30px;
     width:100%;
     color: #c6c8ca;
 }
 
-/*
-* Clock display
-*/
-span#datetime {
-    font-size:30px;
+table#foreCastTable {
+    font-size: 20px;
 }
 
+/*
+* Date time display
+*/
+span.date {
+  font-size:30px;  
+}
 span.time {
-    font-size:40px;
-    width:100%;
-    min-width:100%;
-    text-align:left;
+    font-size:50px;
 }
 
 /*

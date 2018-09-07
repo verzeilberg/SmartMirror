@@ -28,23 +28,6 @@
                 ->prependFile($this->basePath('js/bootstrap.min.js'))
                 ->prependFile($this->basePath('js/jquery-3.1.0.min.js'))
         ?>
-
-        <script>
-            moment.locale('nl');
-            var datetime = null,
-                    date = null;
-
-            var update = function () {
-                date = moment(new Date())
-                datetime.html(date.format('[<span class="date">]dddd, D MMMM YYYY[</span><br/><span class="time">] HH:mm[</span>]'));
-            };
-
-            $(document).ready(function () {
-                datetime = $('#datetime')
-                update();
-                setInterval(update, 1000);
-            });
-        </script>
     </head>
     <body>
         <div class="container-fluid mh-100">

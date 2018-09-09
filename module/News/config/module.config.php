@@ -40,6 +40,7 @@ return [
     ],
     'newsSettings' => [
         'feeds' => [
+            'trouw.nl' => 'https://www.trouw.nl/home/rss.xml',
             'telegraaf.nl' => 'https://www.telegraaf.nl/rss',
             'nu.nl' => 'https://www.nu.nl/rss',
             'ad.nl' => 'https://www.ad.nl/home/rss.xml',

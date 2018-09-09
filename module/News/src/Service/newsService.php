@@ -8,6 +8,7 @@ class newsService implements newsServiceInterface {
 
     private $config;
     private $rssFeedLink;
+    Private $filterWords;
 
     /**
      * Constructor.
@@ -15,6 +16,7 @@ class newsService implements newsServiceInterface {
     public function __construct($config) {
         $this->config = $config;
         $this->rssFeeds = $config['newsSettings']['feeds'];
+        $this->filterWords = $config['newsSettings']['filterWords'];
     }
 
     /**
@@ -33,8 +35,10 @@ class newsService implements newsServiceInterface {
             $json = json_encode($xml);
             $array = json_decode($json, true);
             $newsItems = $array['channel']['item'];
-            foreach($newsItems AS $newsItem) {
-                $data[]['title'] = $newsItem['title'] . ' ('.$index.')';
+            foreach ($newsItems AS $newsItem) {
+                if ($this->filterwords($newsItem['title'])) {
+                    $data[]['title'] = $newsItem['title'] . ' (' . $index . ')';
+                }
             }
         }
         shuffle($data);
@@ -57,6 +61,27 @@ class newsService implements newsServiceInterface {
         $newsItem = $array['channel']['item'][0];
 
         return $newsItem;
+    }
+
+    /**
+     *
+     * Filter string on words
+     *
+     * @return      string
+     *
+     */
+    public function filterwords($string) {
+        $badWords = $this->filterWords;
+        $stringToCheck = 'some stringy thing';
+
+        $noBadWordsFound = true;
+        foreach ($badWords as $badWord) {
+            if (preg_match("/\b$badWord\b/", $string)) {
+                $noBadWordsFound = false;
+                break;
+            }
+        }
+        return $noBadWordsFound;
     }
 
 }

@@ -45,5 +45,12 @@ return [
             'nu.nl' => 'https://www.nu.nl/rss',
             'ad.nl' => 'https://www.ad.nl/home/rss.xml',
         ],
+        'filterWords' => [
+            'sex',
+            'dood',
+            'ontucht',
+            'seksitisch',
+            'seks'
+        ]
     ],
 ];

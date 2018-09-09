@@ -13,4 +13,22 @@ interface newsServiceInterface {
      */
     public function getNewsInfo();
     
+        /**
+     *
+     * Get one news item
+     *
+     * @return      array
+     *
+     */
+    public function getNewsHeadline();
+    
+        /**
+     *
+     * Filter string on words
+     *
+     * @return      string
+     *
+     */
+    public function filterwords($string);
+    
 }

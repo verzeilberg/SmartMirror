@@ -20,11 +20,16 @@ html, body {
 .middle {
         height: 65%;
     min-height: 65%;
+    padding-bottom: 35px;
 }
 
 .footer {
-        height: 20%;
-    min-height: 20%;
+    position:absolute;
+    left:0;
+    bottom:20px;
+        height: 40px;
+    min-height: 40px;
+    width:100%;
 }
 
 h1 {
@@ -36,28 +41,28 @@ h1 {
 * Weather display
 */
 span.temp-wind {
-    font-size:30px;
+    font-size:40px;
     width:100%;
 }
 
 span.sunsetrise {
-    font-size:20px;
+    font-size: 30px;
     width:100%;
     color: #c6c8ca;
 }
 
-/*
-* Clock display
-*/
-span#datetime {
-    font-size:30px;
+table#foreCastTable {
+    font-size: 20px;
 }
 
+/*
+* Date time display
+*/
+span.date {
+  font-size:30px;  
+}
 span.time {
-    font-size:40px;
-    width:100%;
-    min-width:100%;
-    text-align:left;
+    font-size:50px;
 }
 
 /*

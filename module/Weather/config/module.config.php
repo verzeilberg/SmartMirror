@@ -2,12 +2,29 @@
 
 namespace Weather;
 
-use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 
 return [
+    'router' => [
+        'routes' => [
+            'weather' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route' => '/weather[/:action]',
+                    'defaults' => [
+                        'controller' => Controller\AjaxController::class,
+                    ],
+                ],
+            ],
+        ],
+    ],
+    'controllers' => [
+        'factories' => [
+            Controller\AjaxController::class => Factory\AjaxControllerFactory::class,
+        ],
+    ],
     'service_manager' => [
         'invokables' => [
             'Weather\Service\weatherServiceInterface' => 'Weather\Service\weatherService'

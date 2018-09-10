@@ -36,7 +36,7 @@ class newsService implements newsServiceInterface {
             $array = json_decode($json, true);
             $newsItems = $array['channel']['item'];
             foreach ($newsItems AS $newsItem) {
-                if ($this->filterwords($newsItem['title'])) {
+                if (!$this->filterwords($newsItem['title'])) {
                     $data[]['title'] = $newsItem['title'] . ' (' . $index . ')';
                 }
             }
@@ -65,23 +65,21 @@ class newsService implements newsServiceInterface {
 
     /**
      *
-     * Filter string on words
+     * Filter strings on words
      *
-     * @return      string
+     * @return      boolean
      *
      */
     public function filterwords($string) {
         $badWords = $this->filterWords;
-        $stringToCheck = 'some stringy thing';
-
-        $noBadWordsFound = true;
+        $badWordsFound = false;
         foreach ($badWords as $badWord) {
-            if (preg_match("/\b$badWord\b/", $string)) {
-                $noBadWordsFound = false;
+            if (preg_match("/$badWord/i", $string)) {
+                $badWordsFound = true;
                 break;
             }
         }
-        return $noBadWordsFound;
+        return $badWordsFound;
     }
 
 }

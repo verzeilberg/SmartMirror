@@ -31,5 +31,6 @@ return [
     'AssetManager',
     'Weather',
     'News',
+    'Agenda',
     'Application',
 ];

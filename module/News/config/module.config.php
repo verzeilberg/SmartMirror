@@ -49,8 +49,7 @@ return [
             'sex',
             'dood',
             'ontucht',
-            'seksitisch',
-            'seks'
+            'seks',
         ]
     ],
 ];

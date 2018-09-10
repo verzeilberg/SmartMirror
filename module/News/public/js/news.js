@@ -19,6 +19,7 @@ function getNewsData(destroy) {
                 $.each(data.newsData, function (source, value) {
                     ulList += '<div>' + value.title + '</div>';
                 });
+
                 if(destroy == 1){
                     $('#newsData').slick('unslick');
                 }
@@ -32,7 +33,7 @@ function getNewsData(destroy) {
                     vertical: true,
                     autoplay: true,
                     autoplaySpeed: 4000
-                });  
+                });
             }
 
         }
